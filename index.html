@@ -1,144 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Okna Żmuda - Galeria</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 20px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      padding-top: 60px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.9);
-    }
-
-    .lightbox img {
-      margin: auto;
-      display: block;
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 10px;
-    }
-
-    .close, .prev, .next {
-      position: absolute;
-      top: 50%;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      user-select: none;
-    }
-
-    .close {
-      top: 20px;
-      right: 35px;
-      font-size: 50px;
-    }
-
-    .prev {
-      left: 20px;
-      transform: translateY(-50%);
-    }
-
-    .next {
-      right: 20px;
-      transform: translateY(-50%);
-    }
-
-    .close:hover, .prev:hover, .next:hover {
-      color: #bbb;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Galeria - Okna Żmuda</h1>
-
-  <div class="gallery">
-    <img src="images/okno 1.jpg" alt="Okno 1" onclick="openLightbox(0)">
-    <img src="images/okno 2.jpg" alt="Okno 2" onclick="openLightbox(1)">
-    <img src="images/okno.jpg" alt="Okno 3" onclick="openLightbox(2)">
-  </div>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
-    <span class="next" onclick="changeSlide(1)">&#10095;</span>
-    <img id="lightbox-img" src="">
-  </div>
-
-  <script>
-    let currentIndex = 0;
-    const images = document.querySelectorAll(".gallery img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-
-    function openLightbox(index) {
-      currentIndex = index;
-      lightbox.style.display = "block";
-      showImage();
-    }
-
-    function closeLightbox() {
-      lightbox.style.display = "none";
-    }
-
-    function changeSlide(step) {
-      currentIndex += step;
-      if (currentIndex < 0) currentIndex = images.length - 1;
-      if (currentIndex >= images.length) currentIndex = 0;
-      showImage();
-    }
-
-    function showImage() {
-      lightboxImg.src = images[currentIndex].src;
-    }
-
-    // zamykanie lightboxa po kliknięciu w tło
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLigh<!DOCTYPE html>
-<html lang="pl">
-<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Okna Żmuda – okna, rolety, żaluzje, bramy garażowe, panele, drzwi</title>
@@ -214,15 +76,6 @@
       .cards{grid-template-columns:1fr}
       .grid-6{grid-template-columns:1fr 1fr}
     }
-  
-    /* Powiększenie na hover + lightbox po kliknięciu */
-    .zoomable{cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
-    .zoomable:hover{transform:scale(1.05)}
-
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;place-items:center;z-index:1000;padding:20px}
-    .lightbox.open{display:grid}
-    .lightbox img{max-width:min(96vw,1200px);max-height:90vh;border-radius:16px}
-    .lightbox-close{position:fixed;top:16px;right:16px;background:transparent;border:1px solid rgba(255,255,255,.55);color:#fff;border-radius:999px;width:44px;height:44px;font-size:26px;cursor:pointer;line-height:1}
   </style>
   <script>
     // Prosty handler formularza (bez backendu) – otwiera maila z wypełnionymi danymi
@@ -232,7 +85,11 @@
       const phone = document.getElementById('phone').value.trim();
       const message = document.getElementById('message').value.trim();
       const subject = encodeURIComponent('Zapytanie ze strony – Okna Żmuda');
-      const body = encodeURIComponent(`Imię: ${name}\nTelefon: ${phone}\n\nWiadomość:\n${message}`);
+      const body = encodeURIComponent(`Imię: ${name}
+Telefon: ${phone}
+
+Wiadomość:
+${message}`);
       window.location.href = `mailto:kontakt@twojadomena.pl?subject=${subject}&body=${body}`;
     }
   </script>
@@ -292,21 +149,21 @@
       <div>
         <div class="cards">
           <div class="card">
-            <img class="zoomable" src="/images/okna 1.jpg" alt="Okna – przykład realizacji" />
+            <img src="/images/okna.jpg" alt="Okna – przykład realizacji" />
             <div class="box">
               <h3>Okna</h3>
               <p>Energooszczędne profile, ciepły montaż, szeroki wybór szyb i wykończeń.</p>
             </div>
           </div>
           <div class="card">
-            <img class="zoomable" src="/images/drzwi czarne.jpg" alt="Drzwi – przykład realizacji" />
+            <img src="/images/drzwi.jpg" alt="Drzwi – przykład realizacji" />
             <div class="box">
               <h3>Drzwi</h3>
               <p>Wejściowe i wewnętrzne – bezpieczne, estetyczne, dopasowane do wnętrza.</p>
             </div>
           </div>
           <div class="card">
-            <img class="zoomable" src="/images/brama.jpg" alt="Brama garażowa – przykład realizacji" />
+            <img src="/images/brama.jpg" alt="Brama garażowa – przykład realizacji" />
             <div class="box">
               <h3>Bramy garażowe</h3>
               <p>Segmentowe, rolowane, automatyka i serwis. Cicho i bezpiecznie.</p>
@@ -432,51 +289,5 @@
     </div>
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   </footer>
-  
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-modal="true" role="dialog" aria-label="Podgląd zdjęcia">
-    <img id="lightbox-img" alt="Podgląd zdjęcia">
-    <button id="lightbox-close" class="lightbox-close" aria-label="Zamknij">×</button>
-  </div>
-
-  <script>
-    // Lightbox – kliknięcie w obrazek z klasą .zoomable otwiera powiększenie
-    (function(){
-      const overlay = document.getElementById('lightbox');
-      const overlayImg = document.getElementById('lightbox-img');
-      const btnClose = document.getElementById('lightbox-close');
-
-      document.querySelectorAll('img.zoomable').forEach(img => {
-        img.addEventListener('click', () => {
-          overlayImg.src = img.src;
-          overlay.classList.add('open');
-        });
-      });
-
-      function closeLb(){
-        overlay.classList.remove('open');
-        overlayImg.src = '';
-      }
-
-      btnClose.addEventListener('click', closeLb);
-      overlay.addEventListener('click', (e) => { if(e.target === overlay) closeLb(); });
-      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLb(); });
-    })();
-  </script>
-</body>
-</html>
-tbox();
-    });
-
-    // obsługa klawiatury (strzałki + ESC)
-    document.addEventListener("keydown", (e) => {
-      if (lightbox.style.display === "block") {
-        if (e.key === "ArrowRight") changeSlide(1);
-        if (e.key === "ArrowLeft") changeSlide(-1);
-        if (e.key === "Escape") closeLightbox();
-      }
-    });
-  </script>
-
 </body>
 </html>
